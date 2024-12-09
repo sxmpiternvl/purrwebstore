@@ -135,7 +135,6 @@ class _ProductsPageState extends State<ProductsPage> {
                 return LayoutBuilder(
                   builder: (context, constraints) {
                     double maxWidth = constraints.maxWidth;
-                    // Сделаем изображение меньше и по центру
                     double imageWidth = maxWidth * 0.8;
                     double imageHeight = maxWidth * 1.16 * 0.8;
 

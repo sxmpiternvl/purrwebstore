@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 
 class UnderlinedText extends StatelessWidget {
   final String text;
-  final Color underlineColor;
-
+  final Gradient underlineGradient;
 
   const UnderlinedText({
     super.key,
     required this.text,
-    required this.underlineColor
+    required this.underlineGradient,
   });
 
   @override
@@ -27,8 +26,10 @@ class UnderlinedText extends StatelessWidget {
           ),
           Container(
             height: 4,
-            color: underlineColor,
             width: 118,
+            decoration: BoxDecoration(
+              gradient: underlineGradient,
+            ),
           ),
         ],
       ),

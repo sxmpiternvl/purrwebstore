@@ -6,7 +6,7 @@ class test2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double textWidth = screenWidth * 0.6; // 60% ширины экрана
+    double textWidth = screenWidth * 0.6;
 
     return Container(
       width: screenWidth,

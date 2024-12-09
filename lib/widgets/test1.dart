@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'categories_slider.dart';
 class test1 extends StatelessWidget {
   const test1({

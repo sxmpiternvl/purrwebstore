@@ -36,7 +36,7 @@ class ProductsSlider extends StatelessWidget {
               children: [
                 Container(
                   width: width,
-                  height: height, // Явно задаём высоту контейнера
+                  height: height,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     color: const Color(0xFFF4F4F4),

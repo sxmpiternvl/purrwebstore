@@ -23,20 +23,45 @@ class MainPage extends StatelessWidget {
           height: 103,
           child: CategoriesSlider(height: 72, width: 72, items: products1),
         ),
-        const UnderlinedText(text: "Новинки", underlineColor: Colors.blue),
+        const UnderlinedText(
+          text: "Новинки",
+          underlineGradient: LinearGradient(
+            colors: [
+              Colors.white,
+              Colors.cyanAccent,
+            ],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+          ),
+        ),
+
         SizedBox(
           height: 279,
           child: ProductsSlider(height: 188, width: 161, items: products2),
         ),
         const SizedBox(height: 40),
         test1(screenWidth: screenWidth, products3: products3),
-        const UnderlinedText(text: "Акции", underlineColor: Colors.purple),
+        const UnderlinedText(text: "Акции", underlineGradient: LinearGradient(
+          colors: [
+            Colors.white,
+            Colors.purpleAccent,
+          ],
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+        ),),
         SizedBox(
           height: 279,
           child: ProductsSlider(height: 188, width: 161, items: productsSale),
         ),
         const ButtonsWidget(),
-        const UnderlinedText(text: "Хиты", underlineColor: Colors.orange),
+        const UnderlinedText(text: "Хиты", underlineGradient: LinearGradient(
+          colors: [
+            Color.fromARGB(100, 248, 102, 20),  Color.fromARGB(100, 252, 188, 92),
+
+          ],
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+        ),),
         SizedBox(
           height: 279,
           child: ProductsSlider(height: 188, width: 161, items: products2),

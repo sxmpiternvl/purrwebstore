@@ -23,7 +23,7 @@ class CatalogTab extends StatelessWidget {
             );
             break;
           default:
-            throw Exception('Неизвестный маршрут: ${settings.name}');
+            throw Exception();
         }
         return MaterialPageRoute(builder: builder, settings: settings);
       },
