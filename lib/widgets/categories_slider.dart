@@ -31,15 +31,19 @@ class CategoriesSlider extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              color: Colors.black12,
+              color: const Color(0xFFF4F4F4),
             ),
-            child: Image.asset(
-              item['image']!,
-              width: width,
-              height: height,
-              fit: BoxFit.cover,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.asset(
+                item['image']!,
+                width: width,
+                height: height,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
+          const SizedBox(height: 8),
           Text(
             item['title']!,
             style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),

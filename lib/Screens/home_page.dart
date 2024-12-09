@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:purrweb_test/widgets/categories_slider.dart';
-import 'package:purrweb_test/widgets/products_slider.dart';
-import 'package:purrweb_test/widgets/slider.dart';
-import 'package:purrweb_test/widgets/undrerlined_text.dart';
+import 'package:purrweb_test/Screens/profile_page.dart';
+import '../widgets/catalog_tab.dart';
+import 'cart_page.dart';
+import 'main_page.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,85 +13,52 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<Map<String, String>> products1 = [
-    {
-      'image': 'assets/slider11.png',
-      'title': 'Наборы',
-    },
-    {
-      'image': 'assets/slider11.png',
-      'title': 'Для лица',
-    },
-    {
-      'image': 'assets/slider11.png',
-      'title': 'Для глаз',
-    },
-    {
-      'image': 'assets/slider11.png',
-      'title': 'Для тела',
-    },
-    {
-      'image': 'assets/slider11.png',
-      'title': 'Для тела',
-    },
-    {
-      'image': 'assets/slider11.png',
-      'title': 'Для тела',
-    },
-    {
-      'image': 'assets/slider11.png',
-      'title': 'Для тела',
-    },
+  int _selectedIndex = 0;
+
+  final List<Widget> _pages = [
+    const MainPage(),
+    const CatalogTab(),
+    const CartPage(),
+    const ProfilePage(),
   ];
 
-  final List<Map<String, String>> products2 = [
-    {
-      'image': 'assets/slider11.png',
-      'title': 'Unstress Total Serenity Serum',
-      'name': 'Сыворотка',
-      'price': '10 195Р',
-    },
-    {
-      'image': 'assets/slider11.png',
-      'title': 'Unstress Revitalizing Toner',
-      'name': 'Тоник',
-      'price': '3095Р',
-    },
-    {
-      'image': 'assets/slider11.png',
-      'title': 'Unstress Total Serenity Serum',
-      'name': 'Сыворотка',
-      'price': '10 195Р',
-    },
-    {
-      'image': 'assets/slider11.png',
-      'title': 'Unstress Revitalizing Toner',
-      'name': 'Тоник',
-      'price': '3095Р',
-    },
-
-  ];
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: [
-          const SliderWidget(),
-          const SizedBox(height: 25),
-          SizedBox(
-              height: 95,
-              child: CategoriesSlider(
-                items: products1,
-                height: 72,
-                width: 72,
-              )),
-          const SizedBox(height: 32),
-          const UnderlinedText(text: "Новинки", underlineColor: Colors.blue),
-          const SizedBox(height: 24),
-          SizedBox(
-            height: 279,
-            child: ProductsSlider(height: 188, width: 161, items: products2),
+      backgroundColor: Colors.white,
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _pages,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.grey,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Главная',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Каталог',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Корзина',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Профиль',
           ),
         ],
       ),
